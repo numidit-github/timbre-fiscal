@@ -1,0 +1,35 @@
+<odoo>
+
+    <data>
+        <record id="res_config_settings_view_form_payement_mode" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.account.tax.payement_mode</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="50"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='fiscal_localization_setting_container']" position="after">
+
+                    <h2 attrs="{'invisible': [('has_chart_of_accounts','==',False)]}">Mode de paiement</h2>
+                    <div class="row mt16 o_settings_container"
+                         attrs="{'invisible': [('has_chart_of_accounts','==',False)]}">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="payement_mode_account_confirm_force"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="payement_mode_account_confirm_force"/>
+                                <!-- <div class="text-muted">
+                                    Forcer la selection du mode de paiement à la confirmation de la facture.
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+
+</odoo>
